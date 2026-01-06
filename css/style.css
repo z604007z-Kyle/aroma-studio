@@ -1,20 +1,107 @@
-/* 全局樣式 */
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #F5F5F5; color: #333; }
-header { background: #8FBF9F; padding: 10px; }
-nav { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 24px; color: white; }
-ul { list-style: none; display: flex; }
-ul li { margin: 0 15px; }
-ul li a { color: white; text-decoration: none; }
-.hero { position: relative; text-align: center; }
-.hero img { width: 100%; height: auto; }
-.hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; }
-.btn { background: #A782E3; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
-.section { padding: 50px; text-align: center; }
-.service-item { display: inline-block; width: 30%; margin: 20px; }
-footer { background: #8FBF9F; color: white; text-align: center; padding: 10px; }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+body { 
+    font-family: 'Noto Sans TC', sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background: linear-gradient(to bottom, #f9f5f8, #e8f0e8); /* 柔和漸層 */
+    color: #444; 
+    line-height: 1.6;
+}
+header { 
+    background: #8FBF9F; 
+    padding: 20px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+.logo { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 28px; 
+    color: white; 
+}
+ul { 
+    list-style: none; 
+    display: flex; 
+}
+ul li { 
+    margin: 0 20px; 
+}
+ul li a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 500; 
+    transition: color 0.3s; 
+}
+ul li a:hover { 
+    color: #A782E3; 
+}
+.hero { 
+    position: relative; 
+    height: 80vh; 
+    overflow: hidden; 
+}
+.hero img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* 讓圖片填滿 */
+}
+.hero-text { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+    color: white; 
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
+}
+.hero-text h1 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 48px; 
+}
+.btn { 
+    background: #A782E3; 
+    color: white; 
+    padding: 15px 30px; 
+    text-decoration: none; 
+    border-radius: 50px; 
+    font-weight: bold; 
+    transition: background 0.3s; 
+}
+.btn:hover { 
+    background: #9268c9; 
+}
+.section { 
+    padding: 80px 20px; 
+    text-align: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+.service-item { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+    margin: 20px; 
+    transition: transform 0.3s; 
+}
+.service-item:hover { 
+    transform: translateY(-10px); 
+}
+footer { 
+    background: #8FBF9F; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+}
 
 /* 響應式 */
-@media (max-width: 768px) {
-    .service-item { width: 100%; }
+@media (max-width: 768px) { 
+    .hero-text h1 { font-size: 36px; }
+    .service-item { width: 90%; }
 }
