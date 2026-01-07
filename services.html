@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>服務項目 - 芳療師個人工作室</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <!-- nav -->
+        <nav>
+            <div class="logo">芳療工作室</div>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於我</a></li>
+                <li><a href="services.html">服務項目</a></li>
+                <li><a href="testimonials.html">客戶見證</a></li>
+                <li><a href="contact.html">聯絡我</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="services">
-        <h1>服務項目</h1>
-        <div class="service-item">
-            <img src="images/service1.jpg" alt="精油按摩">
-            <h2>精油按摩療程</h2>
-            <p>60 分鐘，NT$1500。緩解肌肉緊張。</p>
-        </div>
-        <div class="service-item">
-            <img src="images/service2.jpg" alt="芳療諮詢">
-            <h2>個性化芳療諮詢</h2>
-            <p>30 分鐘，NT$800。精油推薦與使用指導。</p>
-        </div>
+    <section class="section">
+        <h1 style="font-family: 'Playfair Display', serif; margin-bottom: 40px;">服務項目</h1>
+        
+        <div class="services-container">
+            <div class="service-item">
+                <img src="images/service1.jpg" alt="精油按摩">
+                <h2>精油按摩療程</h2>
+                <p>60 分鐘，NT$1,500</p>
+                <p style="font-size: 0.9em; color: #666;">專業手法搭配特調精油，深度緩解肌肉緊張與身心壓力。</p>
+                <a href="contact.html" class="btn" style="padding: 8px 20px; font-size: 14px; margin-top: 10px;">預約課程</a>
+            </div>
+
+            <div class="service-item">
+                <img src="images/service2.jpg" alt="芳療諮詢">
+                <h2>個性化芳療諮詢</h2>
+                <p>30 分鐘，NT$800</p>
+                <p style="font-size: 0.9em; color: #666;">針對您的體質進行精油推薦與居家使用指導，找回平衡。</p>
+                <a href="contact.html" class="btn" style="padding: 8px 20px; font-size: 14px; margin-top: 10px;">了解更多</a>
+            </div>
+
+            </div>
     </section>
 
     <footer>
-        <!-- footer -->
+        <p>&copy; 2026 芳療工作室. All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
 </body>
-
 </html>
