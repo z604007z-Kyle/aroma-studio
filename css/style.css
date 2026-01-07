@@ -1,6 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
+/* 引入藝術感強烈的 Cinzel 字體與中文 Noto Sans */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
 
-/* 讓網頁捲動更平滑 */
+/* --- 曼陀羅藝術風格變數 --- */
+:root {
+    --primary-gold: #D4AF37;   /* 聖殿金：象徵神聖與能量 */
+    --mystic-purple: #4B367C;  /* 神祕紫：象徵直覺與療癒 */
+    --deep-teal: #1A3C40;      /* 深青色：象徵沉穩與平靜 */
+    --sacred-cream: #FDFBF7;   /* 暖米白：畫布般的底色 */
+    --text-dark: #2A2A2A;      /* 深色文字 */
+}
+
+/* --- 全域美化 --- */
 html {
     scroll-behavior: smooth;
 }
@@ -9,19 +19,32 @@ body {
     font-family: 'Noto Sans TC', sans-serif; 
     margin: 0; 
     padding: 0; 
-    background: #fdfbfb; /* 更細緻的背景色 */
-    background-image: linear-gradient(180deg, #f9f5f8 0%, #e8f0e8 100%); 
-    color: #4a4a4a; /* 深灰比純黑更溫和 */
+    background-color: var(--sacred-cream);
+    color: var(--text-dark); 
     line-height: 1.8;
+    overflow-x: hidden;
 }
 
-/* --- 導覽列：升級為毛玻璃質感 --- */
+/* 背景曼陀羅浮水印效果 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vw;
+    background-image: url('https://www.transparenttextures.com/patterns/sacred-geometry.png');
+    opacity: 0.04;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* --- 藝術導覽列 --- */
 header { 
-    background: rgba(143, 191, 159, 0.9); /* 保持綠色但增加透明度 */
-    backdrop-filter: blur(10px); /* 背景模糊，專業質感的關鍵 */
-    -webkit-backdrop-filter: blur(10px);
-    padding: 12px 20px; 
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+    background: rgba(26, 60, 64, 0.98); /* 深青色底 */
+    padding: 20px 0; 
+    border-bottom: 2px solid var(--primary-gold); /* 金色封邊 */
     position: sticky; 
     top: 0;
     z-index: 1000;
@@ -33,54 +56,51 @@ nav {
     align-items: center; 
     max-width: 1100px; 
     margin: 0 auto; 
+    padding: 0 30px;
 }
 
 .logo { 
-    font-family: 'Playfair Display', serif; 
+    font-family: 'Cinzel', serif; 
     font-size: 26px; 
-    color: white; 
-    letter-spacing: 1.5px;
+    color: var(--primary-gold); 
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
 ul { 
     list-style: none; 
     display: flex; 
+    gap: 30px;
     margin: 0;
 }
 
-ul li { margin: 0 15px; }
-
 ul li a { 
-    color: rgba(255,255,255,0.9); 
+    color: #E0E0E0; 
     text-decoration: none; 
+    font-family: 'Cinzel', serif;
     font-weight: 400; 
-    font-size: 15px;
-    transition: all 0.3s ease; 
-    position: relative;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: all 0.4s ease; 
 }
 
-/* 滑鼠滑過時的細線動畫 */
-ul li a:hover { color: white; }
-ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -5px;
-    left: 0;
-    background-color: white;
-    transition: width 0.3s ease;
+ul li a:hover { 
+    color: var(--primary-gold); 
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
-ul li a:hover::after { width: 100%; }
 
-/* --- 英雄大圖：增加沉浸感 --- */
+/* --- 英雄大圖：神聖弧線設計 --- */
 .hero { 
     position: relative; 
-    height: 80vh; 
-    overflow: hidden; 
+    height: 85vh; 
+    background: var(--deep-teal);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    /* 曼陀羅式的弧形剪裁 */
+    clip-path: ellipse(160% 100% at 50% 0%);
 }
 
 .hero img { 
@@ -88,105 +108,134 @@ ul li a:hover::after { width: 100%; }
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
-    z-index: -1;
-    filter: brightness(0.9); /* 稍微壓暗背景，讓文字更亮 */
+    opacity: 0.6; /* 讓圖片融入背景色 */
+    z-index: 1;
 }
 
 .hero-text { 
+    position: relative;
+    z-index: 2;
     text-align: center; 
-    color: white; 
-    text-shadow: 0 4px 20px rgba(0,0,0,0.3); 
-    animation: fadeInUp 1s ease; /* 加入浮現動畫 */
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    max-width: 800px;
 }
 
 .hero-text h1 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 3.5rem; 
-    margin-bottom: 10px;
-    letter-spacing: 2px;
+    font-family: 'Cinzel', serif; 
+    font-size: clamp(3rem, 8vw, 5rem); 
+    margin-bottom: 15px;
+    background: linear-gradient(to bottom, #F7E7B4, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
 }
 
-/* --- 核心圖片：維持你的完美設定並優化陰影 --- */
-.service-item img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
+/* --- 關於我：曼陀羅金環照片 --- */
 .about-img {
-    width: 280px;
-    height: 280px;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center 20%;
-    border: 8px solid white;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    margin: 0 auto 35px;
-    transition: transform 0.5s ease;
+    /* 金色能量環效果 */
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary-gold), #FFF, var(--primary-gold));
+    box-shadow: 0 0 40px rgba(75, 54, 124, 0.2);
+    display: block;
+    margin: 0 auto 40px;
+    transition: transform 0.6s ease;
 }
-.about-img:hover { transform: scale(1.02); }
 
-/* --- 佈局優化 --- */
+.about-img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* --- 服務卡片：藝術館風格 --- */
 .section { 
-    padding: 100px 20px; 
+    padding: 100px 30px; 
     max-width: 1100px; 
     margin: 0 auto; 
 }
 
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
 .service-item { 
-    background: rgba(255, 255, 255, 0.8);
-    padding: 35px; 
-    border-radius: 20px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid rgba(255,255,255,0.5);
+    background: white; 
+    padding: 50px 35px; 
+    border-radius: 0; /* 藝術風格常使用俐落直角 */
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.service-item::before {
+    content: '◈'; /* 曼陀羅符號裝飾 */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--primary-gold);
+    opacity: 0.5;
 }
 
 .service-item:hover { 
-    transform: translateY(-8px);
-    background: white;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+    transform: translateY(-10px); 
+    border-color: var(--primary-gold);
+    box-shadow: 0 20px 40px rgba(26, 60, 64, 0.1); 
 }
 
-/* --- 按鈕：更柔和的漸層 --- */
+.service-item img {
+    border-radius: 0;
+    margin-bottom: 30px;
+    filter: sepia(20%); /* 輕微復古色調 */
+}
+
+/* --- 按鈕：金箔黑底設計 --- */
 .btn { 
-    background: linear-gradient(135deg, #A782E3 0%, #9268c9 100%); 
-    color: white; 
-    padding: 15px 40px; 
-    text-decoration: none; 
-    border-radius: 50px; 
-    font-weight: 500; 
-    letter-spacing: 1px;
-    box-shadow: 0 8px 20px rgba(167, 130, 227, 0.3);
-    transition: all 0.3s ease;
+    background: var(--deep-teal); 
+    color: var(--primary-gold) !important; 
+    padding: 18px 45px; 
+    border: 1px solid var(--primary-gold);
+    border-radius: 0; 
+    font-family: 'Cinzel', serif;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: all 0.4s;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .btn:hover { 
-    transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(167, 130, 227, 0.4);
+    background: var(--primary-gold);
+    color: white !important;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
 }
 
+/* --- 客戶見證縮寫圓圈 --- */
+.client-initial {
+    background: var(--deep-teal);
+    color: var(--primary-gold);
+    font-family: 'Cinzel', serif;
+    border: 1px solid var(--primary-gold);
+}
+
+/* --- 頁尾 --- */
 footer { 
-    background: #8FBF9F; 
-    color: white; 
-    text-align: center; 
-    padding: 40px; 
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    background: var(--deep-teal); 
+    color: var(--primary-gold); 
+    border-top: 5px solid var(--primary-gold);
+    padding: 60px 20px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
 }
 
-/* 響應式：手機版文字大小縮放 */
+/* --- 響應式微調 --- */
 @media (max-width: 768px) { 
-    .hero-text h1 { font-size: 2.2rem; }
-    .section { padding: 60px 20px; }
-    nav { flex-direction: column; gap: 15px; }
-    ul li { margin: 0 10px; }
+    .hero-text h1 { font-size: 2.5rem; }
+    nav { flex-direction: column; gap: 20px; }
+    ul { gap: 15px; }
+    .about-img { width: 260px; height: 260px; }
 }
