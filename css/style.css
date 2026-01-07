@@ -3,10 +3,10 @@
 
 /* --- 曼陀羅藝術風格變數 --- */
 :root {
-    --primary-gold: #D4AF37;   /* 聖殿金：象徵神聖與能量 */
-    --mystic-purple: #4B367C;  /* 神祕紫：象徵直覺與療癒 */
-    --deep-teal: #1A3C40;      /* 深青色：象徵沉穩與平靜 */
-    --sacred-cream: #FDFBF7;   /* 暖米白：畫布般的底色 */
+    --primary-gold: #D4AF37;   /* 聖殿金 */
+    --mystic-purple: #4B367C;  /* 神祕紫 */
+    --deep-teal: #1A3C40;      /* 深青色 */
+    --sacred-cream: #FDFBF7;   /* 暖米白 */
     --text-dark: #2A2A2A;      /* 深色文字 */
 }
 
@@ -42,9 +42,9 @@ body::before {
 
 /* --- 藝術導覽列 --- */
 header { 
-    background: rgba(26, 60, 64, 0.98); /* 深青色底 */
+    background: rgba(26, 60, 64, 0.98); 
     padding: 20px 0; 
-    border-bottom: 2px solid var(--primary-gold); /* 金色封邊 */
+    border-bottom: 2px solid var(--primary-gold); 
     position: sticky; 
     top: 0;
     z-index: 1000;
@@ -99,7 +99,6 @@ ul li a:hover {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    /* 曼陀羅式的弧形剪裁 */
     clip-path: ellipse(160% 100% at 50% 0%);
 }
 
@@ -107,8 +106,8 @@ ul li a:hover {
     position: absolute;
     width: 100%; 
     height: 100%; 
-    object-fit: cover; 
-    opacity: 0.6; /* 讓圖片融入背景色 */
+    object-fit: cover !important; /* 強制英雄圖填滿 */
+    opacity: 0.6;
     z-index: 1;
 }
 
@@ -129,14 +128,13 @@ ul li a:hover {
     filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
 }
 
-/* --- 關於我：曼陀羅金環照片 --- */
+/* --- 關於我：曼陀羅金環照片 (修正規則) --- */
 .about-img {
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center 20%;
-    /* 金色能量環效果 */
+    width: 320px !important;
+    height: 320px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important; /* 核心設置：保持 20% 對齊 */
     padding: 12px;
     background: linear-gradient(135deg, var(--primary-gold), #FFF, var(--primary-gold));
     box-shadow: 0 0 40px rgba(75, 54, 124, 0.2);
@@ -149,11 +147,12 @@ ul li a:hover {
     transform: scale(1.05) rotate(2deg);
 }
 
-/* --- 服務卡片：藝術館風格 --- */
+/* --- 服務卡片：藝術館風格 (修正圖片規格) --- */
 .section { 
     padding: 100px 30px; 
     max-width: 1100px; 
     margin: 0 auto; 
+    text-align: center;
 }
 
 .services-container {
@@ -165,14 +164,22 @@ ul li a:hover {
 .service-item { 
     background: white; 
     padding: 50px 35px; 
-    border-radius: 0; /* 藝術風格常使用俐落直角 */
     border: 1px solid rgba(212, 175, 55, 0.2);
     position: relative;
     transition: all 0.5s ease;
 }
 
+.service-item img {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important; /* 強制 16:9 */
+    object-fit: cover !important;
+    border-radius: 0;
+    margin-bottom: 30px;
+    filter: sepia(20%);
+}
+
 .service-item::before {
-    content: '◈'; /* 曼陀羅符號裝飾 */
+    content: '◈';
     position: absolute;
     top: 20px;
     left: 20px;
@@ -186,125 +193,58 @@ ul li a:hover {
     box-shadow: 0 20px 40px rgba(26, 60, 64, 0.1); 
 }
 
-.service-item img {
-    border-radius: 0;
-    margin-bottom: 30px;
-    filter: sepia(20%); /* 輕微復古色調 */
-}
-
-/* --- 按鈕：金箔黑底設計 --- */
+/* --- 按鈕、見證與其他樣式 --- */
 .btn { 
     background: var(--deep-teal); 
     color: var(--primary-gold) !important; 
     padding: 18px 45px; 
     border: 1px solid var(--primary-gold);
-    border-radius: 0; 
     font-family: 'Cinzel', serif;
     letter-spacing: 3px;
     text-transform: uppercase;
-    transition: all 0.4s;
+    text-decoration: none;
     display: inline-block;
-    cursor: pointer;
 }
 
-.btn:hover { 
-    background: var(--primary-gold);
-    color: white !important;
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+.client-avatar {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    margin-right: 15px;
 }
 
-/* --- 客戶見證縮寫圓圈 --- */
-.client-initial {
-    background: var(--deep-teal);
-    color: var(--primary-gold);
-    font-family: 'Cinzel', serif;
-    border: 1px solid var(--primary-gold);
-}
-
-/* --- 頁尾 --- */
-footer { 
-    background: var(--deep-teal); 
-    color: var(--primary-gold); 
-    border-top: 5px solid var(--primary-gold);
-    padding: 60px 20px;
-    text-align: center;
-    font-family: 'Cinzel', serif;
-    letter-spacing: 2px;
-}
-
-/* --- Hero 區曼陀羅疊層 --- */
+/* --- 曼陀羅疊層動畫 --- */
 .mandala-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none; /* 讓鼠標可以點擊下方的內容 */
-    z-index: 2; /* 確保在圖片上方但在文字下方 */
-    opacity: 0.7; /* 整體透明度 */
+    position: absolute; width: 100%; height: 100%;
+    top: 0; left: 0; display: flex; align-items: center; justify-content: center;
+    pointer-events: none; z-index: 2; opacity: 0.7;
 }
 
 .mandala-layer {
-    position: absolute;
-    border-radius: 50%; /* 圓形 */
-    background: transparent;
+    position: absolute; border-radius: 50%;
     border: 1px solid var(--primary-gold);
-    transition: all 0.5s ease-out;
 }
 
-.mandala-layer.layer-1 {
-    width: 250px;
-    height: 250px;
-    border: 2px solid rgba(212, 175, 55, 0.4);
-    animation: rotateLayer1 60s linear infinite;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+.layer-1 { width: 250px; height: 250px; border: 2px solid rgba(212, 175, 55, 0.4); animation: rotateMandala 60s linear infinite; }
+.layer-2 { width: 350px; height: 350px; border: 1px solid rgba(75, 54, 124, 0.3); animation: rotateMandala 80s linear infinite reverse; }
+.layer-3 { width: 450px; height: 450px; border: 1px dashed rgba(255, 255, 255, 0.2); animation: rotateMandala 100s linear infinite; }
+
+@keyframes rotateMandala {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.mandala-layer.layer-2 {
-    width: 350px;
-    height: 350px;
-    border: 1px solid rgba(75, 54, 124, 0.3);
-    animation: rotateLayer2 80s linear infinite reverse; /* 反向旋轉 */
-    box-shadow: 0 0 20px rgba(75, 54, 124, 0.15);
+footer { 
+    background: var(--deep-teal); color: var(--primary-gold); 
+    border-top: 5px solid var(--primary-gold); padding: 60px 20px; text-align: center;
 }
 
-.mandala-layer.layer-3 {
-    width: 450px;
-    height: 450px;
-    border: 1px dashed rgba(255, 255, 255, 0.2);
-    animation: rotateLayer3 100s linear infinite;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
-}
-
-/* 曼陀羅旋轉動畫 */
-@keyframes rotateLayer1 {
-    from { transform: rotate(0deg) scale(1); }
-    to { transform: rotate(360deg) scale(1); }
-}
-
-@keyframes rotateLayer2 {
-    from { transform: rotate(0deg) scale(1); }
-    to { transform: rotate(360deg) scale(1); }
-}
-
-@keyframes rotateLayer3 {
-    from { transform: rotate(0deg) scale(1); }
-    to { transform: rotate(360deg) scale(1); }
-}
-
-/* 確保文字在曼陀羅之上 */
-.hero-text {
-    z-index: 3; /* 比曼陀羅層更高 */
-}
-
-/* --- 響應式微調 --- */
+/* --- 響應式調整 --- */
 @media (max-width: 768px) { 
+    .hero { height: 65vh; }
     .hero-text h1 { font-size: 2.5rem; }
+    .about-img { width: 240px !important; height: 240px !important; }
     nav { flex-direction: column; gap: 20px; }
-    ul { gap: 15px; }
-    .about-img { width: 260px; height: 260px; }
 }
-
