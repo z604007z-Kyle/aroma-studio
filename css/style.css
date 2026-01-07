@@ -4,14 +4,19 @@ body {
     font-family: 'Noto Sans TC', sans-serif; 
     margin: 0; 
     padding: 0; 
-    background: linear-gradient(to bottom, #f9f5f8, #e8f0e8); /* 柔和漸層 */
+    background: linear-gradient(to bottom, #f9f5f8, #e8f0e8); 
     color: #444; 
     line-height: 1.6;
 }
+
+/* --- 導覽列優化 --- */
 header { 
     background: #8FBF9F; 
-    padding: 20px; 
+    padding: 15px 20px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    position: sticky; /* 讓導覽列固定在頂部 */
+    top: 0;
+    z-index: 1000;
 }
 nav { 
     display: flex; 
@@ -28,6 +33,7 @@ nav {
 ul { 
     list-style: none; 
     display: flex; 
+    margin: 0;
 }
 ul li { 
     margin: 0 20px; 
@@ -41,15 +47,18 @@ ul li a {
 ul li a:hover { 
     color: #A782E3; 
 }
+
+/* --- 英雄大圖 (hero.jpg) --- */
 .hero { 
     position: relative; 
-    height: 80vh; 
+    height: 70vh; /* 稍微調降高度，讓手機版更好閱讀 */
     overflow: hidden; 
 }
 .hero img { 
     width: 100%; 
     height: 100%; 
-    object-fit: cover; /* 讓圖片填滿 */
+    object-fit: cover; /* 自動裁切填滿，不拉伸 */
+    object-position: center; /* 以圖片中心為準 */
 }
 .hero-text { 
     position: absolute; 
@@ -58,50 +67,87 @@ ul li a:hover {
     transform: translate(-50%, -50%); 
     text-align: center; 
     color: white; 
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.4); 
+    width: 90%;
 }
 .hero-text h1 { 
     font-family: 'Playfair Display', serif; 
     font-size: 48px; 
+    margin-bottom: 20px;
 }
-.btn { 
-    background: #A782E3; 
-    color: white; 
-    padding: 15px 30px; 
-    text-decoration: none; 
-    border-radius: 50px; 
-    font-weight: bold; 
-    transition: background 0.3s; 
+
+/* --- 核心圖片自動調整 (關鍵新增！) --- */
+
+/* 服務項目圖片 (service1.jpg, service2.jpg) */
+.service-item img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 強制所有服務圖片變成 16:9 比例 */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
-.btn:hover { 
-    background: #9268c9; 
+
+/* 關於我/頭像圖片 (about-me.jpg) */
+.about-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* 圓形頭像 */
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 0 auto 20px;
 }
+
+/* --- 版塊佈局 --- */
 .section { 
     padding: 80px 20px; 
     text-align: center; 
     max-width: 1200px; 
     margin: 0 auto; 
 }
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自動並排 */
+    gap: 20px;
+}
 .service-item { 
     background: white; 
-    padding: 30px; 
+    padding: 20px; 
     border-radius: 15px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-    margin: 20px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
     transition: transform 0.3s; 
 }
 .service-item:hover { 
     transform: translateY(-10px); 
 }
+
+/* --- 按鈕與頁尾 --- */
+.btn { 
+    background: #A782E3; 
+    color: white; 
+    padding: 12px 35px; 
+    text-decoration: none; 
+    border-radius: 50px; 
+    font-weight: bold; 
+    transition: all 0.3s; 
+    display: inline-block;
+}
+.btn:hover { 
+    background: #9268c9; 
+    box-shadow: 0 4px 12px rgba(167, 130, 227, 0.4);
+}
 footer { 
     background: #8FBF9F; 
     color: white; 
     text-align: center; 
-    padding: 20px; 
+    padding: 30px; 
+    margin-top: 50px;
 }
 
-/* 響應式 */
+/* --- 響應式調整 --- */
 @media (max-width: 768px) { 
-    .hero-text h1 { font-size: 36px; }
-    .service-item { width: 90%; }
+    .hero-text h1 { font-size: 32px; }
+    nav { flex-direction: column; }
+    ul { margin-top: 15px; padding: 0; }
+    ul li { margin: 0 10px; }
 }
