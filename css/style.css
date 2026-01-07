@@ -93,7 +93,7 @@ ul li a:hover {
     height: 280px;          /* 高度固定，確保是正圓 */
     border-radius: 50%;     /* 圓形化 */
     object-fit: cover;      /* 關鍵：自動填滿，不拉伸 */
-    object-position: center 5%; 
+    object-position: center 20%; 
     
     border: 5px solid white;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -154,6 +154,7 @@ footer {
     ul { margin-top: 15px; padding: 0; }
     ul li { margin: 0 10px; }
 }
+
 
 
 
