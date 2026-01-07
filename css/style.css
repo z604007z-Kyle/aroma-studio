@@ -1,225 +1,192 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
 
+/* 讓網頁捲動更平滑 */
+html {
+    scroll-behavior: smooth;
+}
+
 body { 
     font-family: 'Noto Sans TC', sans-serif; 
     margin: 0; 
     padding: 0; 
-    background: linear-gradient(to bottom, #f9f5f8, #e8f0e8); 
-    color: #444; 
-    line-height: 1.6;
+    background: #fdfbfb; /* 更細緻的背景色 */
+    background-image: linear-gradient(180deg, #f9f5f8 0%, #e8f0e8 100%); 
+    color: #4a4a4a; /* 深灰比純黑更溫和 */
+    line-height: 1.8;
 }
 
-/* --- 導覽列優化 --- */
+/* --- 導覽列：升級為毛玻璃質感 --- */
 header { 
-    background: #8FBF9F; 
-    padding: 15px 20px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    position: sticky; /* 讓導覽列固定在頂部 */
+    background: rgba(143, 191, 159, 0.9); /* 保持綠色但增加透明度 */
+    backdrop-filter: blur(10px); /* 背景模糊，專業質感的關鍵 */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 12px 20px; 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+    position: sticky; 
     top: 0;
     z-index: 1000;
 }
+
 nav { 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    max-width: 1200px; 
+    max-width: 1100px; 
     margin: 0 auto; 
 }
+
 .logo { 
     font-family: 'Playfair Display', serif; 
-    font-size: 28px; 
+    font-size: 26px; 
     color: white; 
+    letter-spacing: 1.5px;
 }
+
 ul { 
     list-style: none; 
     display: flex; 
     margin: 0;
 }
-ul li { 
-    margin: 0 20px; 
-}
+
+ul li { margin: 0 15px; }
+
 ul li a { 
-    color: white; 
+    color: rgba(255,255,255,0.9); 
     text-decoration: none; 
-    font-weight: 500; 
-    transition: color 0.3s; 
-}
-ul li a:hover { 
-    color: #A782E3; 
+    font-weight: 400; 
+    font-size: 15px;
+    transition: all 0.3s ease; 
+    position: relative;
 }
 
-/* --- 英雄大圖 (hero.jpg) --- */
+/* 滑鼠滑過時的細線動畫 */
+ul li a:hover { color: white; }
+ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+ul li a:hover::after { width: 100%; }
+
+/* --- 英雄大圖：增加沉浸感 --- */
 .hero { 
     position: relative; 
-    height: 70vh; /* 稍微調降高度，讓手機版更好閱讀 */
+    height: 80vh; 
     overflow: hidden; 
-}
-.hero img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; /* 自動裁切填滿，不拉伸 */
-    object-position: center; /* 以圖片中心為準 */
-}
-.hero-text { 
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    text-align: center; 
-    color: white; 
-    text-shadow: 2px 2px 15px rgba(0,0,0,0.4); 
-    width: 90%;
-}
-.hero-text h1 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 48px; 
-    margin-bottom: 20px;
-}
-
-/* --- 核心圖片自動調整 (關鍵新增！) --- */
-
-/* 服務項目圖片 (service1.jpg, service2.jpg) */
-.service-item img {
-    width: 100%;
-    aspect-ratio: 16 / 9; /* 強制所有服務圖片變成 16:9 比例 */
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-/* --- 關於我照片優化版 --- */
-.about-img {
-    width: 280px;           /* 寬度固定 */
-    height: 280px;          /* 高度固定，確保是正圓 */
-    border-radius: 50%;     /* 圓形化 */
-    object-fit: cover;      /* 關鍵：自動填滿，不拉伸 */
-    object-position: center 20%; 
-    
-    border: 5px solid white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    display: block;
-    margin: 0 auto 30px;    /* 置中並與下方文字保持距離 */
-}
-
-/* --- 客戶見證專用樣式 --- */
-
-.testimonial-card {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.quote-icon {
-    font-family: 'Playfair Display', serif;
-    font-size: 50px;
-    color: #8FBF9F;
-    height: 30px;
-    line-height: 1;
-}
-
-.client-info {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    border-top: 1px solid #eee;
-    padding-top: 15px;
-}
-
-/* 客戶小頭像：同樣使用 20% 裁切邏輯 */
-.client-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center 20%; /* 確保小圖也不會切到臉 */
-    margin-right: 15px;
-}
-
-.client-info strong {
-    display: block;
-    color: #444;
-}
-
-.client-info span {
-    font-size: 0.8em;
-    color: #888;
-}
-
-/* --- 無圖片時的客戶縮寫樣式 --- */
-.client-initial {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #f0e6e6; /* 淡淡的粉藕色，很適合芳療感 */
-    color: #8FBF9F;           /* 使用你的導覽列綠色作為文字色 */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 15px;
-    border: 2px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* --- 版塊佈局 --- */
-.section { 
-    padding: 80px 20px; 
+.hero img { 
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    z-index: -1;
+    filter: brightness(0.9); /* 稍微壓暗背景，讓文字更亮 */
+}
+
+.hero-text { 
     text-align: center; 
-    max-width: 1200px; 
+    color: white; 
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3); 
+    animation: fadeInUp 1s ease; /* 加入浮現動畫 */
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-text h1 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 3.5rem; 
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+/* --- 核心圖片：維持你的完美設定並優化陰影 --- */
+.service-item img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.about-img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 8px solid white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    margin: 0 auto 35px;
+    transition: transform 0.5s ease;
+}
+.about-img:hover { transform: scale(1.02); }
+
+/* --- 佈局優化 --- */
+.section { 
+    padding: 100px 20px; 
+    max-width: 1100px; 
     margin: 0 auto; 
 }
-.services-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自動並排 */
-    gap: 20px;
-}
+
 .service-item { 
-    background: white; 
-    padding: 20px; 
-    border-radius: 15px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
-    transition: transform 0.3s; 
-}
-.service-item:hover { 
-    transform: translateY(-10px); 
+    background: rgba(255, 255, 255, 0.8);
+    padding: 35px; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255,255,255,0.5);
 }
 
-/* --- 按鈕與頁尾 --- */
+.service-item:hover { 
+    transform: translateY(-8px);
+    background: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+}
+
+/* --- 按鈕：更柔和的漸層 --- */
 .btn { 
-    background: #A782E3; 
+    background: linear-gradient(135deg, #A782E3 0%, #9268c9 100%); 
     color: white; 
-    padding: 12px 35px; 
+    padding: 15px 40px; 
     text-decoration: none; 
     border-radius: 50px; 
-    font-weight: bold; 
-    transition: all 0.3s; 
-    display: inline-block;
+    font-weight: 500; 
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(167, 130, 227, 0.3);
+    transition: all 0.3s ease;
 }
+
 .btn:hover { 
-    background: #9268c9; 
-    box-shadow: 0 4px 12px rgba(167, 130, 227, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(167, 130, 227, 0.4);
 }
+
 footer { 
     background: #8FBF9F; 
     color: white; 
     text-align: center; 
-    padding: 30px; 
-    margin-top: 50px;
+    padding: 40px; 
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 
-/* --- 響應式調整 --- */
+/* 響應式：手機版文字大小縮放 */
 @media (max-width: 768px) { 
-    .hero-text h1 { font-size: 32px; }
-    nav { flex-direction: column; }
-    ul { margin-top: 15px; padding: 0; }
+    .hero-text h1 { font-size: 2.2rem; }
+    .section { padding: 60px 20px; }
+    nav { flex-direction: column; gap: 15px; }
     ul li { margin: 0 10px; }
 }
-
-
-
-
-
-
-
