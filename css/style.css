@@ -87,15 +87,17 @@ ul li a:hover {
     margin-bottom: 15px;
 }
 
-/* 關於我/頭像圖片 (about-me.jpg) */
+/* --- 關於我照片優化版 --- */
 .about-img {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%; /* 圓形頭像 */
-    object-fit: cover;
-    border: 5px solid white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin: 0 auto 20px;
+    width: 280px;           /* 設定固定寬度 */
+    height: 280px;          /* 設定固定高度（必須與寬度一致才是正圓） */
+    border-radius: 50%;     /* 變成圓形 */
+    object-fit: cover;      /* 關鍵：縮放圖片以填滿圓圈，不拉伸 */
+    object-position: center 20%; /* 修正裁切點：向上偏移 20%，通常能完美保留頭部空間 */
+    border: 8px solid white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto 30px;
 }
 
 /* --- 版塊佈局 --- */
@@ -151,3 +153,4 @@ footer {
     ul { margin-top: 15px; padding: 0; }
     ul li { margin: 0 10px; }
 }
+
