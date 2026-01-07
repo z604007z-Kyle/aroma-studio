@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>關於我 - 芳療師個人工作室</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <!-- 同 index.html 的 nav -->
+        <nav>
+            <div class="logo">芳療工作室</div>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於我</a></li>
+                <li><a href="services.html">服務項目</a></li>
+                <li><a href="testimonials.html">客戶見證</a></li>
+                <li><a href="contact.html">聯絡我</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="about">
-        <h1>關於我</h1>
-        <img src="images/about-me.jpg" alt="芳療師照片">
-        <p>我是 [你的名字]，持有國際芳療師證照，擁有 5 年經驗。專長於精油調配與身心療癒。</p>
-        <p>我的理念：自然療癒，找回內在平靜。</p>
+    <section class="section">
+        <h1 style="font-family: 'Playfair Display', serif;">關於我</h1>
+        
+        <img src="images/about-me.jpg" alt="芳療師照片" class="about-img">
+        
+        <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+            <p>我是 <strong>[你的名字]</strong>，持有國際芳療師證照，擁有 5 年經驗。專長於精油調配與身心療癒。</p>
+            <p>我的理念：<strong>自然療癒，找回內在平靜。</strong></p>
+            <p>在芳療的旅程中，我深信植物的力量能帶領我們度過都市生活的疲憊，重新建立與身體的連結。</p>
+        </div>
+        
+        <div style="margin-top: 40px;">
+            <a href="services.html" class="btn">查看服務項目</a>
+        </div>
     </section>
 
     <footer>
-        <!-- 同 index.html -->
+        <p>&copy; 2026 芳療工作室. All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
 </body>
-
 </html>
