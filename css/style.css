@@ -146,6 +146,23 @@ ul li a:hover {
     color: #888;
 }
 
+/* --- 無圖片時的客戶縮寫樣式 --- */
+.client-initial {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f0e6e6; /* 淡淡的粉藕色，很適合芳療感 */
+    color: #8FBF9F;           /* 使用你的導覽列綠色作為文字色 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 15px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
 /* --- 版塊佈局 --- */
 .section { 
     padding: 80px 20px; 
@@ -199,6 +216,7 @@ footer {
     ul { margin-top: 15px; padding: 0; }
     ul li { margin: 0 10px; }
 }
+
 
 
 
