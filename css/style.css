@@ -101,6 +101,51 @@ ul li a:hover {
     margin: 0 auto 30px;    /* 置中並與下方文字保持距離 */
 }
 
+/* --- 客戶見證專用樣式 --- */
+
+.testimonial-card {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quote-icon {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    color: #8FBF9F;
+    height: 30px;
+    line-height: 1;
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* 客戶小頭像：同樣使用 20% 裁切邏輯 */
+.client-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%; /* 確保小圖也不會切到臉 */
+    margin-right: 15px;
+}
+
+.client-info strong {
+    display: block;
+    color: #444;
+}
+
+.client-info span {
+    font-size: 0.8em;
+    color: #888;
+}
+
 /* --- 版塊佈局 --- */
 .section { 
     padding: 80px 20px; 
@@ -154,6 +199,7 @@ footer {
     ul { margin-top: 15px; padding: 0; }
     ul li { margin: 0 10px; }
 }
+
 
 
 
