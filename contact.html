@@ -3,59 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>聯絡我 - 芳療師個人工作室</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>聯絡靈境 - 開啟您的療癒儀式</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* 針對聯絡頁面的額外樣式 */
+        /* 聯絡頁面專屬藝術樣式優化 */
         .contact-wrapper {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 60px;
             justify-content: center;
             text-align: left;
-            margin-top: 40px;
+            margin-top: 50px;
         }
         .contact-info {
             flex: 1;
             min-width: 300px;
             padding: 20px;
+            border-left: 2px solid var(--primary-gold); /* 藝術感金線 */
+        }
+        .contact-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            margin-bottom: 25px;
         }
         .contact-form {
             flex: 1.5;
             min-width: 300px;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.8); /* 提升可讀性的半透明白 */
+            padding: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 15px 35px rgba(26, 60, 64, 0.05);
+            position: relative;
+        }
+        /* 曼陀羅元素角落裝飾 */
+        .contact-form::after {
+            content: '◈';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            color: var(--primary-gold);
+            opacity: 0.4;
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: 500;
+            color: var(--deep-teal);
+            font-size: 0.9rem;
         }
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid #E0E0E0;
+            border-radius: 0; /* 統一改為藝術感直角 */
             font-family: inherit;
+            background: rgba(255, 255, 255, 0.9);
+            transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            background: #FFF;
         }
         .submit-btn {
             width: 100%;
             border: none;
+            font-weight: 700;
             cursor: pointer;
-            font-size: 16px;
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">芳療工作室</div>
+            <div class="logo">靈境芳療</div>
             <ul>
                 <li><a href="index.html">首頁</a></li>
                 <li><a href="about.html">關於我</a></li>
@@ -67,52 +93,55 @@
     </header>
 
     <section class="section">
-        <h1 style="font-family: 'Playfair Display', serif;">與我聯絡</h1>
-        <p>如果您對療程有任何疑問，或想預約特定時段，歡迎透過以下方式聯繫。</p>
+        <h1 style="font-family: 'Cinzel', serif; color: var(--primary-gold); letter-spacing: 2px;">Connect With Us</h1>
+        <p style="color: var(--deep-teal);">如果您對療程有任何疑問，或想預約專屬時段，歡迎在此留下您的訊息。</p>
 
         <div class="contact-wrapper">
             <div class="contact-info">
-                <h3>聯繫資料</h3>
-                <p><strong>地點：</strong> 台北市松山區某某路 123 號（預約制）</p>
-                <p><strong>Email：</strong> therapist@example.com</p>
-                <p><strong>Line ID：</strong> @aroma_healer</p>
-                <p><strong>營業時間：</strong> 週二至週日 10:00 - 20:00</p>
+                <h3>Contact Info</h3>
+                <p><strong>能量場域：</strong> 台北市松山區某某路 123 號（預約制）</p>
+                <p><strong>電子信箱：</strong> niuniu@sacredaroma.com</p>
+                <p><strong>Line 聯繫：</strong> @aroma_healer</p>
+                <p><strong>靜心時間：</strong> 週二至週日 10:00 - 20:00</p>
                 
-                <div style="margin-top: 30px;">
-                    <p><em>註：為了保持療程品質，諮詢中無法接聽電話，請多利用 Line 留言。</em></p>
+                <div style="margin-top: 40px; padding: 20px; background: rgba(212, 175, 55, 0.05); border: 1px dashed var(--primary-gold);">
+                    <p style="font-size: 0.9rem; color: #555; margin: 0;">
+                        <em>* 溫馨提醒：為了保持療程中的能量流動與品質，諮詢中無法及時接聽電話，請優先利用 Line 或下方表單留言，我會儘速回覆您。</em>
+                    </p>
                 </div>
             </div>
 
             <div class="contact-form">
                 <form action="#">
                     <div class="form-group">
-                        <label for="name">您的姓名</label>
-                        <input type="text" id="name" placeholder="例如：王小明" required>
+                        <label for="name">您的稱呼 (Name)</label>
+                        <input type="text" id="name" placeholder="請輸入您的姓名" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">電子郵件 / Line ID</label>
+                        <label for="email">聯絡方式 (Email / Line ID)</label>
                         <input type="text" id="email" placeholder="方便回覆您的聯絡方式" required>
                     </div>
                     <div class="form-group">
-                        <label for="service">感興趣的療程</label>
-                        <select id="service" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
-                            <option value="massage">精油按摩療程</option>
-                            <option value="consult">個性化芳療諮詢</option>
-                            <option value="other">其他詢問</option>
+                        <label for="service">感興趣的療程項目</label>
+                        <select id="service">
+                            <option value="massage">脈輪平衡按摩療程 (60 mins)</option>
+                            <option value="consult">個性化靈境諮詢 (30 mins)</option>
+                            <option value="other">其他需求詢問</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">訊息內容</label>
-                        <textarea id="message" rows="5" placeholder="請告訴我您的需求或想預約的時間"></textarea>
+                        <label for="message">您的訊息 (Message)</label>
+                        <textarea id="message" rows="5" placeholder="請告訴我您的需求或預計想預約的時間..."></textarea>
                     </div>
-                    <button type="submit" class="btn submit-btn">傳送訊息</button>
+                    <button type="submit" class="btn submit-btn">傳送預約訊息</button>
                 </form>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 芳療工作室. All rights reserved.</p>
+        <div style="font-family: 'Cinzel', serif; letter-spacing: 2px; margin-bottom: 10px;">The Soul's Sanctuary</div>
+        <p>&copy; 2026 靈境芳療 | Sacred Mandala Aromatherapy. All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
