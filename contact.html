@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>聯絡靈境 - 開啟您的療癒儀式</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    
     <style>
-        /* 聯絡頁面專屬藝術樣式優化 */
         .contact-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -20,7 +22,7 @@
             flex: 1;
             min-width: 300px;
             padding: 20px;
-            border-left: 2px solid var(--primary-gold); /* 藝術感金線 */
+            border-left: 2px solid var(--primary-gold);
         }
         .contact-info h3 {
             font-family: 'Cinzel', serif;
@@ -31,13 +33,12 @@
         .contact-form {
             flex: 1.5;
             min-width: 300px;
-            background: rgba(255, 255, 255, 0.8); /* 提升可讀性的半透明白 */
+            background: rgba(255, 255, 255, 0.95); /* 稍微調高不透明度增加質感 */
             padding: 40px;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 15px 35px rgba(26, 60, 64, 0.05);
+            box-shadow: 0 15px 35px rgba(26, 60, 64, 0.08);
             position: relative;
         }
-        /* 曼陀羅元素角落裝飾 */
         .contact-form::after {
             content: '◈';
             position: absolute;
@@ -60,21 +61,28 @@
             width: 100%;
             padding: 12px;
             border: 1px solid #E0E0E0;
-            border-radius: 0; /* 統一改為藝術感直角 */
+            border-radius: 0;
             font-family: inherit;
-            background: rgba(255, 255, 255, 0.9);
+            background: #fff;
             transition: 0.3s;
         }
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--primary-gold);
-            background: #FFF;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
         }
         .submit-btn {
             width: 100%;
             border: none;
             font-weight: 700;
             cursor: pointer;
+        }
+        /* 成功提示樣式 */
+        #success-msg {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            color: var(--deep-teal);
         }
     </style>
 </head>
@@ -93,11 +101,11 @@
     </header>
 
     <section class="section">
-        <h1 style="font-family: 'Cinzel', serif; color: var(--primary-gold); letter-spacing: 2px;">Connect With Us</h1>
-        <p style="color: var(--deep-teal);">如果您對療程有任何疑問，或想預約專屬時段，歡迎在此留下您的訊息。</p>
+        <h1 data-aos="fade-down" style="font-family: 'Cinzel', serif; color: var(--primary-gold); letter-spacing: 2px;">Connect With Us</h1>
+        <p data-aos="fade-up" style="color: var(--deep-teal);">如果您對療程有任何疑問，或想預約專屬時段，歡迎在此留下您的訊息。</p>
 
         <div class="contact-wrapper">
-            <div class="contact-info">
+            <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
                 <h3>Contact Info</h3>
                 <p><strong>能量場域：</strong> 台北市松山區某某路 123 號（預約制）</p>
                 <p><strong>電子信箱：</strong> niuniu@sacredaroma.com</p>
@@ -111,30 +119,35 @@
                 </div>
             </div>
 
-            <div class="contact-form">
-                <form action="#">
+            <div class="contact-form" data-aos="fade-left" data-aos-delay="400">
+                <form id="contact-form">
                     <div class="form-group">
                         <label for="name">您的稱呼 (Name)</label>
-                        <input type="text" id="name" placeholder="請輸入您的姓名" required>
+                        <input type="text" id="name" name="from_name" placeholder="請輸入您的姓名" required>
                     </div>
                     <div class="form-group">
                         <label for="email">聯絡方式 (Email / Line ID)</label>
-                        <input type="text" id="email" placeholder="方便回覆您的聯絡方式" required>
+                        <input type="text" id="email" name="contact_info" placeholder="方便回覆您的聯絡方式" required>
                     </div>
                     <div class="form-group">
                         <label for="service">感興趣的療程項目</label>
-                        <select id="service">
-                            <option value="massage">脈輪平衡按摩療程 (60 mins)</option>
-                            <option value="consult">個性化靈境諮詢 (30 mins)</option>
-                            <option value="other">其他需求詢問</option>
+                        <select id="service" name="service_type">
+                            <option value="脈輪平衡按摩">脈輪平衡按摩療程 (60 mins)</option>
+                            <option value="個性化靈境諮詢">個性化靈境諮詢 (30 mins)</option>
+                            <option value="其他需求">其他需求詢問</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="message">您的訊息 (Message)</label>
-                        <textarea id="message" rows="5" placeholder="請告訴我您的需求或預計想預約的時間..."></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="請告訴我您的需求或預計想預約的時間..."></textarea>
                     </div>
-                    <button type="submit" class="btn submit-btn">傳送預約訊息</button>
+                    <button type="submit" id="submit-button" class="btn submit-btn">傳送預約訊息</button>
                 </form>
+
+                <div id="success-msg">
+                    <h3 style="font-family: 'Cinzel', serif; color: var(--primary-gold);">◈ 訊息已傳遞 ◈</h3>
+                    <p>請靜心等待，我們將透過香氛的指引與您聯繫。</p>
+                </div>
             </div>
         </div>
     </section>
@@ -144,6 +157,42 @@
         <p>&copy; 2026 靈境芳療 | Sacred Mandala Aromatherapy. All rights reserved.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script>
+        // 初始化 AOS
+        AOS.init({ duration: 1000, once: true });
+
+        // 初始化 EmailJS (請換成你的 Public Key)
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); 
+        })();
+
+        // 表單處理邏輯
+        const contactForm = document.getElementById('contact-form');
+        const successMsg = document.getElementById('success-msg');
+        const submitBtn = document.getElementById('submit-button');
+
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                submitBtn.innerText = "能量傳送中...";
+                submitBtn.disabled = true;
+
+                // 傳送郵件 (請換成你的 Service ID 和 Template ID)
+                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                    .then(function() {
+                        contactForm.style.display = 'none';
+                        successMsg.style.display = 'block';
+                    }, function(error) {
+                        alert('傳送失敗，請透過 Line 與我們聯繫。');
+                        submitBtn.innerText = "重新傳送";
+                        submitBtn.disabled = false;
+                    });
+            });
+        }
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
