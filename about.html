@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>關於靈境 - 芳療師妞妞</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -22,26 +24,31 @@
     </header>
 
     <section class="section">
-        <h1 style="font-family: 'Cinzel', serif; color: var(--primary-gold); letter-spacing: 2px;">About The Healer</h1>
+        <h1 data-aos="fade-down" style="font-family: 'Cinzel', serif; color: var(--primary-gold); letter-spacing: 4px; margin-bottom: 50px;">About The Healer</h1>
         
-        <div class="mandala-frame">
+        <div class="mandala-frame" data-aos="zoom-in" data-aos-duration="1500">
             <img src="images/about-me.jpg" alt="芳療師妞妞" class="about-img">
         </div>
 
-        <div style="max-width: 650px; margin: 40px auto 0; text-align: left; padding: 0 20px;">
-            <p style="font-size: 1.1rem; border-left: 3px solid var(--primary-gold); padding-left: 20px; color: var(--deep-teal);">
-                我是 <strong>妞妞 (NiuNiu)</strong>，深耕於身心療癒領域的引路人。
+        <div data-aos="fade-up" data-aos-delay="300" style="max-width: 650px; margin: 40px auto 0; text-align: left; padding: 0 20px;">
+            <p style="font-size: 1.2rem; border-left: 4px solid var(--primary-gold); padding-left: 20px; color: var(--deep-teal); font-weight: 500;">
+                我是 <strong>妞妞 (NiuNiu)</strong>，<br>深耕於身心療癒領域的引路人。
             </p>
-            <p>
-                持有國際芳療師證照並擁有超過 5 年的實務經驗。我擅長透過曼陀羅幾何能量概念與精油調配，幫助您在快節奏的生活中建立一個內在的避風港。
-            </p>
-            <p>我的核心理念：<strong>「身心和諧，即是靈魂最好的曼陀羅。」</strong></p>
-            <p>
-                在每一次的療癒旅程中，我不僅是提供按摩，更是透過植物的精華能量，協助您重新連結身體的訊息，消除累積已久的疲憊與負擔。
-            </p>
+            
+            <div style="color: #555; line-height: 2;">
+                <p>
+                    持有國際芳療師證照並擁有超過 5 年的實務經驗。我擅長透過曼陀羅幾何能量概念與精油調配，幫助您在快節奏的生活中建立一個內在的避風港。
+                </p>
+                <p style="text-align: center; margin: 40px 0; font-family: 'Cinzel', serif; color: var(--primary-gold); font-size: 1.3rem; letter-spacing: 1px;">
+                    「身心和諧，即是靈魂最好的曼陀羅。」
+                </p>
+                <p>
+                    在每一次的療癒旅程中，我不僅是提供按摩，更是透過植物的精華能量，協助您重新連結身體的訊息，消除累積已久的疲憊與負擔。
+                </p>
+            </div>
         </div>
         
-        <div style="margin-top: 50px;">
+        <div style="margin-top: 60px;" data-aos="fade-up" data-aos-delay="600">
             <a href="services.html" class="btn">探索療癒方案</a>
         </div>
     </section>
@@ -51,6 +58,14 @@
         <p>&copy; 2026 靈境芳療 | Sacred Mandala Aromatherapy. All rights reserved.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out'
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
