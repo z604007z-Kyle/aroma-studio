@@ -8,6 +8,7 @@
     --deep-teal: #1A3C40;      /* 深青色 */
     --sacred-cream: #FDFBF7;   /* 暖米白 */
     --text-dark: #2A2A2A;      /* 深色文字 */
+    --gold-glow: rgba(212, 175, 55, 0.4);
 }
 
 /* --- 全域美化 --- */
@@ -48,6 +49,7 @@ header {
     position: sticky; 
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 nav { 
@@ -87,7 +89,7 @@ ul li a {
 
 ul li a:hover { 
     color: var(--primary-gold); 
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 10px var(--gold-glow);
 }
 
 /* --- 英雄大圖：神聖弧線設計 --- */
@@ -102,25 +104,31 @@ ul li a:hover {
     clip-path: ellipse(160% 100% at 50% 0%);
 }
 
-.hero img { 
+.hero img.hero-bg { 
     position: absolute;
     width: 100%; 
     height: 100%; 
-    object-fit: cover !important; /* 強制英雄圖填滿 */
-    opacity: 0.6;
+    object-fit: cover !important; 
+    opacity: 0.5;
     z-index: 1;
+    transition: transform 2s ease;
+}
+
+.hero:hover img.hero-bg {
+    transform: scale(1.05);
 }
 
 .hero-text { 
     position: relative;
-    z-index: 2;
+    z-index: 3; /* 確保在曼陀羅之上 */
     text-align: center; 
     max-width: 800px;
+    padding: 0 20px;
 }
 
 .hero-text h1 { 
     font-family: 'Cinzel', serif; 
-    font-size: clamp(3rem, 8vw, 5rem); 
+    font-size: clamp(2.5rem, 8vw, 4.5rem); 
     margin-bottom: 15px;
     background: linear-gradient(to bottom, #F7E7B4, #D4AF37);
     -webkit-background-clip: text;
@@ -128,26 +136,34 @@ ul li a:hover {
     filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
 }
 
-/* --- 關於我：曼陀羅金環照片 (修正規則) --- */
+.hero-text p {
+    color: #FDFBF7;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- 關於我：曼陀羅金環照片 --- */
 .about-img {
     width: 320px !important;
     height: 320px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
-    object-position: center 20% !important; /* 核心設置：保持 20% 對齊 */
+    object-position: center 20% !important; 
     padding: 12px;
     background: linear-gradient(135deg, var(--primary-gold), #FFF, var(--primary-gold));
     box-shadow: 0 0 40px rgba(75, 54, 124, 0.2);
     display: block;
     margin: 0 auto 40px;
-    transition: transform 0.6s ease;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .about-img:hover {
-    transform: scale(1.05) rotate(2deg);
+    transform: scale(1.05) rotate(5deg);
 }
 
-/* --- 服務卡片：藝術館風格 (修正圖片規格) --- */
+/* --- 服務卡片：藝術館風格 --- */
 .section { 
     padding: 100px 30px; 
     max-width: 1100px; 
@@ -167,15 +183,17 @@ ul li a:hover {
     border: 1px solid rgba(212, 175, 55, 0.2);
     position: relative;
     transition: all 0.5s ease;
+    overflow: hidden;
 }
 
 .service-item img {
     width: 100% !important;
-    aspect-ratio: 16 / 9 !important; /* 強制 16:9 */
+    aspect-ratio: 16 / 9 !important; 
     object-fit: cover !important;
-    border-radius: 0;
+    border-radius: 4px;
     margin-bottom: 30px;
     filter: sepia(20%);
+    transition: all 0.5s ease;
 }
 
 .service-item::before {
@@ -185,15 +203,21 @@ ul li a:hover {
     left: 20px;
     color: var(--primary-gold);
     opacity: 0.5;
+    font-size: 1.5rem;
 }
 
 .service-item:hover { 
-    transform: translateY(-10px); 
+    transform: translateY(-15px); 
     border-color: var(--primary-gold);
-    box-shadow: 0 20px 40px rgba(26, 60, 64, 0.1); 
+    box-shadow: 0 25px 50px rgba(26, 60, 64, 0.15); 
 }
 
-/* --- 按鈕、見證與其他樣式 --- */
+.service-item:hover img {
+    filter: sepia(0%);
+    transform: scale(1.03);
+}
+
+/* --- 按鈕樣式 --- */
 .btn { 
     background: var(--deep-teal); 
     color: var(--primary-gold) !important; 
@@ -204,8 +228,31 @@ ul li a:hover {
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
+.btn:hover {
+    color: white !important;
+    box-shadow: 0 0 20px var(--gold-glow);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: var(--primary-gold);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    left: 0;
+}
+
+/* --- 客戶見證頭像 --- */
 .client-avatar {
     width: 60px !important;
     height: 60px !important;
@@ -213,38 +260,73 @@ ul li a:hover {
     object-fit: cover !important;
     object-position: center 20% !important;
     margin-right: 15px;
+    border: 2px solid var(--primary-gold);
 }
 
-/* --- 曼陀羅疊層動畫 --- */
+/* --- 曼陀羅疊層動畫 (優化版) --- */
 .mandala-overlay {
-    position: absolute; width: 100%; height: 100%;
-    top: 0; left: 0; display: flex; align-items: center; justify-content: center;
-    pointer-events: none; z-index: 2; opacity: 0.7;
+    position: absolute; 
+    width: 100%; 
+    height: 100%;
+    top: 0; left: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    pointer-events: none; 
+    z-index: 2; 
+    mix-blend-mode: screen; /* 讓金線與背景融合更亮 */
 }
 
 .mandala-layer {
-    position: absolute; border-radius: 50%;
-    border: 1px solid var(--primary-gold);
+    position: absolute; 
+    border-radius: 50%;
+    box-sizing: border-box;
 }
 
-.layer-1 { width: 250px; height: 250px; border: 2px solid rgba(212, 175, 55, 0.4); animation: rotateMandala 60s linear infinite; }
-.layer-2 { width: 350px; height: 350px; border: 1px solid rgba(75, 54, 124, 0.3); animation: rotateMandala 80s linear infinite reverse; }
-.layer-3 { width: 450px; height: 450px; border: 1px dashed rgba(255, 255, 255, 0.2); animation: rotateMandala 100s linear infinite; }
+.layer-1 { 
+    width: 300px; height: 300px; 
+    border: 2px solid rgba(212, 175, 55, 0.6); 
+    animation: rotateMandala 60s linear infinite; 
+}
+.layer-2 { 
+    width: 450px; height: 450px; 
+    border: 1px solid rgba(212, 175, 55, 0.3); 
+    animation: rotateMandala 80s linear infinite reverse; 
+}
+.layer-3 { 
+    width: 600px; height: 600px; 
+    border: 1px dashed rgba(255, 255, 255, 0.15); 
+    animation: rotateMandala 120s linear infinite; 
+}
 
 @keyframes rotateMandala {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
+/* --- 頁尾優化 --- */
 footer { 
-    background: var(--deep-teal); color: var(--primary-gold); 
-    border-top: 5px solid var(--primary-gold); padding: 60px 20px; text-align: center;
+    background: var(--deep-teal); 
+    color: var(--primary-gold); 
+    border-top: 5px solid var(--primary-gold); 
+    padding: 80px 20px; 
+    text-align: center;
 }
 
 /* --- 響應式調整 --- */
 @media (max-width: 768px) { 
-    .hero { height: 65vh; }
-    .hero-text h1 { font-size: 2.5rem; }
-    .about-img { width: 240px !important; height: 240px !important; }
+    .hero { height: 70vh; }
+    .hero-text h1 { font-size: 2.2rem; }
+    .about-img { width: 220px !important; height: 220px !important; }
     nav { flex-direction: column; gap: 20px; }
+    ul { gap: 15px; padding: 0; }
+    ul li a { font-size: 12px; }
+}
+
+/* --- AOS 動態微調 --- */
+[data-aos] {
+    pointer-events: none;
+}
+.aos-animate {
+    pointer-events: auto;
 }
