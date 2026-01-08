@@ -1,6 +1,6 @@
 /**
  * 靈境芳療 - 全站互動邏輯
- * 包含：AOS 初始化、平滑滾動、EmailJS 處理、曼陀羅特效優化
+ * 包含：AOS 初始化、平滑滾動、預約表單模擬、導航欄優化
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 2. 基本導航平滑滾動 (優化原本功能)
+    // 2. 基本導覽平滑滾動 (優化原本功能)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 3. EmailJS 預約表單邏輯 (針對 contact.html)
+    // 3. 預約表單處理邏輯 (暫時註釋 EmailJS 並使用模擬效果)
     const contactForm = document.getElementById('contact-form');
-    if (contactForm && typeof emailjs !== 'undefined') {
+    if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
@@ -47,9 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.disabled = true;
             }
 
-            // 執行傳送 (請確保在 contact.html 填入正確 ID)
-            // emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-            // 這裡先寫 console 模擬，正式上線請取消上方註釋
+            // --- EmailJS 正式串接區 (目前已註釋) ---
+            /*
             emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
                 .then(() => {
                     contactForm.style.opacity = '0';
@@ -59,26 +58,40 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 500);
                 }, (error) => {
                     alert('傳遞失敗，請透過 Line 直接與我聯繫。');
-                    if (submitBtn) {
-                        submitBtn.innerText = "重新傳送";
-                        submitBtn.disabled = false;
-                    }
-                    console.error('EmailJS Error:', error);
+                    submitBtn.innerText = "重新傳送";
+                    submitBtn.disabled = false;
                 });
+            */
+            // ------------------------------------
+
+            // --- 測試用：模擬傳送成功效果 (當你申請好 EmailJS 後，請刪除這段並取消上方註釋) ---
+            setTimeout(() => {
+                contactForm.style.opacity = '0';
+                setTimeout(() => {
+                    contactForm.style.display = 'none';
+                    if (successMsg) successMsg.style.display = 'block';
+                    console.log("模擬傳送成功：當你串接 EmailJS 後，這封信會寄到你的信箱。");
+                }, 500);
+            }, 1500); 
+            // ----------------------------------------------------------------------
         });
     }
 
-    // 4. 導航欄滾動效果 (當捲動超過 50px 時改變透明度)
+    // 4. 導航欄滾動效果 (提升捲動時的質感)
     const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.background = 'rgba(26, 60, 64, 0.98)';
-            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
-        } else {
-            header.style.background = 'rgba(26, 60, 64, 0.95)';
-            header.style.boxShadow = 'none';
-        }
-    });
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(26, 60, 64, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
+                header.style.padding = '10px 0'; // 捲動時縮小高度，更精緻
+            } else {
+                header.style.background = 'rgba(26, 60, 64, 0.95)';
+                header.style.boxShadow = 'none';
+                header.style.padding = '20px 0';
+            }
+        });
+    }
 
     console.log("◈ 靈境芳療：能量場域已準備就緒 ◈");
 });
