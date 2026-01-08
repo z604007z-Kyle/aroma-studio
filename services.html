@@ -5,7 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>療癒方案 - 靈境芳療</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* 針對服務頁面的細節微調 */
+        .service-price {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        .service-description {
+            font-size: 0.95em;
+            color: #666;
+            margin: 20px 0 30px;
+            min-height: 80px; /* 保持卡片高度一致 */
+        }
+        /* 裝飾性的小曼陀羅圖示 */
+        .service-divider {
+            margin: 20px auto;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-gold);
+            opacity: 0.3;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,23 +50,30 @@
     </header>
 
     <section class="section">
-        <h1 style="font-family: 'Cinzel', serif; color: var(--primary-gold); letter-spacing: 2px; margin-bottom: 50px;">Sacred Services</h1>
+        <h1 data-aos="fade-down" style="font-family: 'Cinzel', serif; color: var(--primary-gold); letter-spacing: 4px; margin-bottom: 20px;">Sacred Services</h1>
+        <p data-aos="fade-up" style="color: var(--deep-teal); margin-bottom: 60px;">在香氣與幾何的律動中，找回身心的原始頻率。</p>
         
         <div class="services-container">
-            <div class="service-item">
-                <img src="images/service1.jpg" alt="精油按摩療程">
-                <h3 style="font-weight: 700; color: var(--deep-teal);">脈輪平衡按摩療程</h3>
-                <p style="color: var(--primary-gold); font-weight: 500;">60 mins / NT$1,500</p>
-                <p style="font-size: 0.95em; color: #666; margin: 15px 0;">結合神聖幾何律動手法，針對身體能量中心（脈輪）進行深度按摩，喚醒內在的自癒力量。</p>
-                <a href="contact.html" class="btn" style="padding: 12px 30px; font-size: 14px;">預約體驗</a>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+                <div style="overflow: hidden; margin-bottom: 30px;">
+                    <img src="images/service1.jpg" alt="精油按摩療程">
+                </div>
+                <h3 style="font-weight: 700; color: var(--deep-teal); margin-bottom: 10px;">脈輪平衡按摩療程</h3>
+                <div class="service-divider"></div>
+                <p class="service-price">60 mins / NT$1,500</p>
+                <p class="service-description">結合神聖幾何律動手法，針對身體能量中心（脈輪）進行深度按摩，喚醒內在的自癒力量。</p>
+                <a href="contact.html" class="btn" style="padding: 12px 40px; font-size: 14px; width: auto;">預約體驗</a>
             </div>
 
-            <div class="service-item">
-                <img src="images/service2.jpg" alt="芳療諮詢">
-                <h3 style="font-weight: 700; color: var(--deep-teal);">個性化靈境諮詢</h3>
-                <p style="color: var(--primary-gold); font-weight: 500;">30 mins / NT$800</p>
-                <p style="font-size: 0.95em; color: #666; margin: 15px 0;">根據您的生辰或當前能量狀態，調配專屬曼陀羅精油，為居家生活注入療癒香氛。</p>
-                <a href="contact.html" class="btn" style="padding: 12px 30px; font-size: 14px;">開啟對話</a>
+            <div class="service-item" data-aos="fade-up" data-aos-delay="400">
+                <div style="overflow: hidden; margin-bottom: 30px;">
+                    <img src="images/service2.jpg" alt="芳療諮詢">
+                </div>
+                <h3 style="font-weight: 700; color: var(--deep-teal); margin-bottom: 10px;">個性化靈境諮詢</h3>
+                <div class="service-divider"></div>
+                <p class="service-price">30 mins / NT$800</p>
+                <p class="service-description">根據您的生辰或當前能量狀態，調配專屬曼陀羅精油，為居家生活注入療癒香氛。</p>
+                <a href="contact.html" class="btn" style="padding: 12px 40px; font-size: 14px; width: auto;">開啟對話</a>
             </div>
         </div>
     </section>
@@ -48,6 +83,14 @@
         <p>&copy; 2026 靈境芳療 | Sacred Mandala Aromatherapy. All rights reserved.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-back',
+            once: true
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
