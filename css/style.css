@@ -43,23 +43,26 @@ body::before {
 
 /* --- 藝術導覽列 --- */
 header { 
-    /* 1. 引用你的曼陀羅圖片 */
+    /* 1. 引用圖片路徑 */
     background-image: url('../images/mandala-bg.png'); 
     
-    /* 2. 混合原本的深綠色，讓圖片不會太刺眼，維持品牌感 */
-    background-color: rgba(26, 60, 64, 0.95); 
-    background-blend-mode: overlay; /* 讓圖片與綠色重疊，呈現低調奢華感 */
+    /* 2. 顏色與混合模式 */
+    background-color: rgba(26, 60, 64, 0.98); 
+    background-blend-mode: overlay; 
     
-    /* 3. 背景定位與縮放 */
-    background-size: cover;      /* 讓圖片填滿整個 header */
-    background-position: center; /* 讓曼陀羅中心或重要部位對齊 */
+    /* 3. 關鍵修正：確保背景圖與容器同步 */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    background-attachment: local; /* 改為 local 讓背景隨內容固定在 header 內 */
 
     padding: 20px 0; 
     border-bottom: 2px solid var(--primary-gold); 
     position: sticky; 
     top: 0;
     z-index: 1000;
+    /* 增加背景裁切設定，確保背景不超出範圍 */
+    background-clip: padding-box; 
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
@@ -365,6 +368,7 @@ footer a:hover {
 .aos-animate {
     pointer-events: auto;
 }
+
 
 
 
