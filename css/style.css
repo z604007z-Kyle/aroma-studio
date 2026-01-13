@@ -20,25 +20,36 @@ body {
     font-family: 'Noto Sans TC', sans-serif; 
     margin: 0; 
     padding: 0; 
-    background-color: var(--sacred-cream);
+    background-color: var(--sacred-cream); /* 基礎底色 */
     color: var(--text-dark); 
     line-height: 1.8;
     overflow-x: hidden;
+    position: relative; /* 確保 ::before 定位正確 */
 }
 
-/* 背景曼陀羅浮水印效果 */
+/* 背景藍色曼陀羅浮水印效果 */
 body::before {
     content: '';
-    position: fixed;
+    position: fixed; /* 固定在螢幕，滑動時內容在上面動 */
     top: 50%;
     left: 50%;
-    width: 100vw;
-    height: 100vw;
-    background-image: url('https://www.transparenttextures.com/patterns/sacred-geometry.png');
-    opacity: 0.04;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
+    /* 調整大小：如果想要圖案大一點可以改為 120vw */
+    width: 100vw; 
+    height: 100vh; 
+    
+    /* 引用你的藍色曼陀羅圖片路徑 */
+    background-image: url('../images/mandala-bg-blue.png'); 
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* 確保圖案完整顯示，或改用 800px 指定大小 */
+    
+    /* 透明度建議調低（0.05 - 0.1），讓它像浮水印一樣 */
+    opacity: 0.08; 
+    
+    z-index: -1; /* 放在最底層 */
+    transform: translate(-50%, -50%); /* 完美的置中 */
+    pointer-events: none; /* 確保滑鼠點擊可以穿透圖案 */
 }
 
 /* --- 藝術導覽列 --- */
@@ -330,6 +341,7 @@ footer {
 .aos-animate {
     pointer-events: auto;
 }
+
 
 
 
