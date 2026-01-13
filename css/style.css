@@ -43,37 +43,49 @@ body::before {
 
 /* --- 藝術導覽列 --- */
 header { 
-    /* 1. 引用圖片路徑 */
-    background-image: url('../images/mandala-bg.png'); 
-    
-    /* 2. 顏色與混合模式 */
-    background-color: rgba(26, 60, 64, 0.98); 
-    background-blend-mode: overlay; 
-    
-    /* 3. 關鍵修正：確保背景圖與容器同步 */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: local; /* 改為 local 讓背景隨內容固定在 header 內 */
-
-    padding: 20px 0; 
-    border-bottom: 2px solid var(--primary-gold); 
     position: sticky; 
     top: 0;
     z-index: 1000;
-    /* 增加背景裁切設定，確保背景不超出範圍 */
-    background-clip: padding-box; 
+    /* 1. 設定基礎的深綠色背景 */
+    background-color: rgba(26, 60, 64, 0.98); 
+    padding: 20px 0; 
+    border-bottom: 2px solid var(--primary-gold); 
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    /* 2. 確保內部內容在最上層 */
+    overflow: hidden;
 }
 
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    /* 3. 引用曼陀羅圖片 */
+    background-image: url('../images/mandala-bg.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* 4. 控制紋樣的透明度 (0.1 ~ 0.3 之間效果最好) */
+    opacity: 0.2; 
+    /* 5. 確保圖片在文字下方 */
+    z-index: -1;
+    /* 6. 防止滑動時閃爍的硬體加速 */
+    pointer-events: none;
+    transform: translateZ(0);
+}
+
+/* 為了確保 nav 內容在圖片上方，需要加上 z-index */
 nav { 
+    position: relative;
+    z-index: 1;
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     max-width: 1100px; 
     margin: 0 auto; 
     padding: 0 30px;
-    /* 這裡不需要特別修改，除非你想增加高度來露出更多背景圖 */
 }
 
 .logo { 
@@ -368,6 +380,7 @@ footer a:hover {
 .aos-animate {
     pointer-events: auto;
 }
+
 
 
 
