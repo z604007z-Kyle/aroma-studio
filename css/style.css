@@ -43,43 +43,16 @@ body::before {
 
 /* --- 藝術導覽列 --- */
 header { 
+    background: rgba(26, 60, 64, 0.98); 
+    padding: 20px 0; 
+    border-bottom: 2px solid var(--primary-gold); 
     position: sticky; 
     top: 0;
     z-index: 1000;
-    /* 1. 設定基礎的深綠色背景 */
-    background-color: rgba(26, 60, 64, 0.98); 
-    padding: 20px 0; 
-    border-bottom: 2px solid var(--primary-gold); 
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    /* 2. 確保內部內容在最上層 */
-    overflow: hidden;
 }
 
-header::before {
-    content: "";
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0;
-    /* 3. 引用曼陀羅圖片 */
-    background-image: url('../images/mandala-bg.png'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* 4. 控制紋樣的透明度 (0.1 ~ 0.3 之間效果最好) */
-    opacity: 0.2; 
-    /* 5. 確保圖片在文字下方 */
-    z-index: -1;
-    /* 6. 防止滑動時閃爍的硬體加速 */
-    pointer-events: none;
-    transform: translateZ(0);
-}
-
-/* 為了確保 nav 內容在圖片上方，需要加上 z-index */
 nav { 
-    position: relative;
-    z-index: 1;
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
@@ -332,35 +305,12 @@ ul li a:hover {
 }
 
 /* --- 頁尾優化 --- */
-footer {
-    /* 1. 引用相同的曼陀羅圖片 */
-    background-image: url('images/mandala-bg.png'); 
-    
-    /* 2. 保持與 Header 一致的色調與混合模式 */
-    background-color: rgba(26, 60, 64, 0.98); 
-    background-blend-mode: overlay; 
-    
-    /* 3. 背景定位：建議設為 center 以展示圖案核心 */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    /* 4. 間距與裝飾 */
-    padding: 60px 0 30px; /* 增加上下留白，讓圖案與內容有呼吸空間 */
-    color: #ffffff;
-    border-top: 2px solid var(--primary-gold); /* 頂部加上金邊，與 Header 的底邊呼應 */
+footer { 
+    background: var(--deep-teal); 
+    color: var(--primary-gold); 
+    border-top: 5px solid var(--primary-gold); 
+    padding: 80px 20px; 
     text-align: center;
-}
-
-/* 確保頁尾內的文字連結也清晰好讀 */
-footer a {
-    color: var(--primary-gold);
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-footer a:hover {
-    filter: brightness(1.2);
 }
 
 /* --- 響應式調整 --- */
@@ -380,6 +330,7 @@ footer a:hover {
 .aos-animate {
     pointer-events: auto;
 }
+
 
 
 
