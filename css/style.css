@@ -30,26 +30,25 @@ body {
 /* 背景藍色曼陀羅浮水印效果 */
 body::before {
     content: '';
-    position: fixed; /* 固定在螢幕，滑動時內容在上面動 */
-    top: 50%;
-    left: 50%;
-    /* 調整大小：如果想要圖案大一點可以改為 120vw */
-    width: 100vw; 
-    height: 100vh; 
-    
-    /* 引用你的藍色曼陀羅圖片路徑 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 引用圖片路徑 */
     background-image: url('../images/mandala-bg-blue.png'); 
     
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain; /* 確保圖案完整顯示，或改用 800px 指定大小 */
+    /* 關鍵設定：讓圖案重複 */
+    background-repeat: repeat; 
     
-    /* 透明度建議調低（0.05 - 0.1），讓它像浮水印一樣 */
-    opacity: 0.08; 
+    /* 調整單個圖案的大小，200px ~ 400px 效果最佳 */
+    background-size: 300px; 
     
-    z-index: -1; /* 放在最底層 */
-    transform: translate(-50%, -50%); /* 完美的置中 */
-    pointer-events: none; /* 確保滑鼠點擊可以穿透圖案 */
+    /* 降低透明度，當作淡淡的底紋 */
+    opacity: 0.05; 
+    
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* --- 藝術導覽列 --- */
@@ -341,6 +340,7 @@ footer {
 .aos-animate {
     pointer-events: auto;
 }
+
 
 
 
