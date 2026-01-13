@@ -44,7 +44,7 @@ body::before {
 /* --- 藝術導覽列 --- */
 header { 
     /* 1. 引用你的曼陀羅圖片 */
-    background-image: url('images/mandala.png'); 
+    background-image: url('images/mandala-bg.png'); 
     
     /* 2. 混合原本的深綠色，讓圖片不會太刺眼，維持品牌感 */
     background-color: rgba(26, 60, 64, 0.95); 
@@ -319,7 +319,7 @@ ul li a:hover {
 /* --- 頁尾優化 --- */
 footer {
     /* 1. 引用相同的曼陀羅圖片 */
-    background-image: url('images/mandala.png'); 
+    background-image: url('images/mandala-bg.png'); 
     
     /* 2. 保持與 Header 一致的色調與混合模式 */
     background-color: rgba(26, 60, 64, 0.98); 
@@ -365,6 +365,7 @@ footer a:hover {
 .aos-animate {
     pointer-events: auto;
 }
+
 
 
 
