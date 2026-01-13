@@ -1,34 +1,41 @@
-/* 引入 Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Noto+Serif+TC:wght@400;500;600&display=swap');
+/* 1. 引入 Google Fonts (包含黑體與宋體) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400&display=swap');
 
+/* 2. 定義變數 */
 :root {
-  --primary-font: 'Noto Serif TC', serif;
-  --secondary-font: 'Montserrat', sans-serif;
-}
-
-body {
-  font-family: var(--secondary-font), 'Microsoft JhengHei', sans-serif;
-  color: #4a4a4a;
-}
-
-h1, h2, h3, .brand-name {
-  font-family: var(--primary-font);
-  letter-spacing: 0.1em;
-}
-
-/* --- 曼陀羅藝術風格變數 --- */
-:root {
-    --primary-gold: #D4AF37;   /* 聖殿金 */
-    --mystic-purple: #4B367C;  /* 神祕紫 */
-    --deep-teal: #1A3C40;      /* 深青色 */
-    --sacred-cream: #FDFBF7;   /* 暖米白 */
-    --text-dark: #2A2A2A;      /* 深色文字 */
+    /* 字體變數 */
+    --font-heading: 'Noto Serif TC', serif;    /* 標題：典雅宋體 */
+    --font-body: 'Montserrat', 'Noto Sans TC', sans-serif; /* 內文：現代黑體 */
+    
+    /* 曼陀羅藝術風格顏色 */
+    --primary-gold: #D4AF37;
+    --mystic-purple: #4B367C;
+    --deep-teal: #1A3C40;
+    --sacred-cream: #FDFBF7;
+    --text-dark: #2A2A2A;
     --gold-glow: rgba(212, 175, 55, 0.4);
 }
 
-/* --- 全域美化 --- */
+/* 3. 全域樣式 */
 html {
     scroll-behavior: smooth;
+}
+
+/* 4. 標題與特殊元素 */
+h1, h2, h3, .brand-name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.12em; /* 增加字距讓標題更優美 */
+    color: var(--deep-teal); /* 使用深青色作為標題色，非常有質感 */
+}
+
+/* 針對曼陀羅風格的額外建議：裝飾性文字 */
+.subtitle {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    color: var(--primary-gold);
+    letter-spacing: 0.2em;
+    font-size: 0.9rem;
 }
 
 body { 
