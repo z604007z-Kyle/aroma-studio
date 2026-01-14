@@ -253,6 +253,22 @@ ul li a:hover {
     to { transform: rotate(360deg); }
 }
 
+/* 確保 Cusdis 容器不會裁切內容 */
+#cusdis_thread {
+    min-height: 520px; /* 這是 名字+信箱+內容+按鈕 的標準高度 */
+    width: 100%;
+    margin-top: 20px;
+    overflow: visible !important; /* 確保內容不會被切掉 */
+}
+
+/* 強制裡面的 iframe 展開，不准出現內部捲軸 */
+#cusdis_thread iframe {
+    width: 100% !important;
+    min-height: 520px !important;
+    border: none !important;
+    overflow: hidden !important; /* 隱藏 iframe 內部的捲軸 */
+}
+
 /* --- 頁尾 --- */
 footer { 
     background: #112a2d; 
@@ -270,3 +286,4 @@ footer {
     nav { padding: 0 15px; }
     ul { gap: 10px; }
 }
+
