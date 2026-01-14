@@ -259,6 +259,7 @@ ul li a:hover {
     width: 100%;
     margin-top: 20px;
     overflow: visible !important; /* 確保內容不會被切掉 */
+    mix-blend-mode: multiply; /* 讓黑色背景與你的網頁背景融合 */
 }
 
 /* 強制裡面的 iframe 展開，不准出現內部捲軸 */
@@ -267,6 +268,8 @@ ul li a:hover {
     min-height: 520px !important;
     border: none !important;
     overflow: hidden !important; /* 隱藏 iframe 內部的捲軸 */
+    color-scheme: light; /* 強制內容使用亮色系字體 */
+    filter: invert(0);   /* 確保顏色不被反轉 */
 }
 
 /* --- 頁尾 --- */
@@ -286,4 +289,5 @@ footer {
     nav { padding: 0 15px; }
     ul { gap: 10px; }
 }
+
 
