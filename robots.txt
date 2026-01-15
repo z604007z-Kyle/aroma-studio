@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 這裡填寫你的 Sitemap 網址，幫助 Google 快速找到它
+Sitemap: https://z604007z-kyle.github.io/aroma-studio/sitemap.xml
