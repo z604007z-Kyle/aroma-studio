@@ -30,7 +30,26 @@
         .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--deep-teal); font-size: 0.9rem; }
         .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #E0E0E0; border-radius: 0; font-family: inherit; background: #fff; transition: 0.3s; }
         .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
-        .submit-btn { width: 100%; border: none; font-weight: 700; cursor: pointer; }
+        /* --- 修正按鈕樣式 --- */
+        .submit-btn { 
+            width: 100%; 
+            border: none; 
+            font-weight: 700; 
+            cursor: pointer; 
+            background-color: #D4AF37; /* 金色背景 */
+            color: #FFFFFF;           /* 白色文字 */
+            padding: 15px; 
+            font-size: 1rem;
+            transition: 0.3s;
+            display: block;
+        }
+        .submit-btn:hover { 
+            background-color: #1A3C40; /* 懸停變深色 */
+        }
+        .submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
         #success-msg { display: none; text-align: center; padding: 40px; color: var(--deep-teal); }
     </style>
 </head>
@@ -165,6 +184,7 @@
     </script>
 </body>
 </html>
+
 
 
 
