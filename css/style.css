@@ -253,22 +253,6 @@ ul li a:hover {
     to { transform: rotate(360deg); }
 }
 
-/* 讓 Flatpickr 的時間選擇器變大，更好點擊/滾動 */
-.flatpickr-time {
-    height: 100px !important;
-    line-height: 100px !important;
-}
-
-.numInputWrapper span {
-    display: block !important; /* 讓上下箭頭更明顯 */
-    opacity: 1 !important;
-}
-
-.flatpickr-time input {
-    font-size: 1.5rem !important; /* 數字變大 */
-}
-
-
 /* --- 頁尾 --- */
 footer { 
     background: #112a2d; 
@@ -286,6 +270,7 @@ footer {
     nav { padding: 0 15px; }
     ul { gap: 10px; }
 }
+
 
 
 
