@@ -135,24 +135,19 @@
         // 初始化日期時間選擇器
         flatpickr("#booking_time", {
             enableTime: true,
-            noCalendar: false,         // 保留日曆選日期
             dateFormat: "Y-m-d H:i",
             minDate: "today",
             minTime: "10:00",
             maxTime: "20:00",
             minuteIncrement: 30,
-            time_24hr: true,           // 使用 24 小時制，減少滾輪負擔
-            disableMobile: false,      // ★ 重要：在手機上會自動啟用手機原生的「滾輪選擇器」
+            time_24hr: true,
+            // ★ 關鍵：在手機上強制開啟原生滾輪
+            disableMobile: false, 
             "disable": [
                 function(date) {
-                    // 只有週日(0)和週四(4)可以點擊
                     return (date.getDay() !== 0 && date.getDay() !== 4);
                 }
-            ],
-            // 讓時間選擇更像滾輪的視覺微調
-            onReady: function(selectedDates, dateStr, instance) {
-                // 這可以確保在電腦版點擊時間時，體驗更流暢
-            }
+            ]
         });
 
         const SUPABASE_URL = 'https://wkfbnqxklmngflgmgdwk.supabase.co';
@@ -208,5 +203,6 @@
     </script>
 </body>
 </html>
+
 
 
