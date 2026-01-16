@@ -8,96 +8,31 @@
     <meta name="keywords" content="芳療預約, 聯絡妞妞, 台北按摩預約, 松山區芳療">
     <link rel="icon" href="images/faviconlog.png" type="image/png">
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZSGTP2E2D"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-NZSGTP2E2D');
     </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     
     <style>
-        .contact-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 60px;
-            justify-content: center;
-            text-align: left;
-            margin-top: 50px;
-        }
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-            border-left: 2px solid var(--primary-gold);
-        }
-        .contact-info h3 {
-            font-family: 'Cinzel', serif;
-            color: var(--primary-gold);
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-        }
-        .contact-form {
-            flex: 1.5;
-            min-width: 300px;
-            background: rgba(255, 255, 255, 0.95); /* 稍微調高不透明度增加質感 */
-            padding: 40px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 15px 35px rgba(26, 60, 64, 0.08);
-            position: relative;
-        }
-        .contact-form::after {
-            content: '◈';
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            color: var(--primary-gold);
-            opacity: 0.4;
-        }
-        .form-group {
-            margin-bottom: 25px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--deep-teal);
-            font-size: 0.9rem;
-        }
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #E0E0E0;
-            border-radius: 0;
-            font-family: inherit;
-            background: #fff;
-            transition: 0.3s;
-        }
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-gold);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
-        }
-        .submit-btn {
-            width: 100%;
-            border: none;
-            font-weight: 700;
-            cursor: pointer;
-        }
-        /* 成功提示樣式 */
-        #success-msg {
-            display: none;
-            text-align: center;
-            padding: 40px;
-            color: var(--deep-teal);
-        }
+        .contact-wrapper { display: flex; flex-wrap: wrap; gap: 60px; justify-content: center; text-align: left; margin-top: 50px; }
+        .contact-info { flex: 1; min-width: 300px; padding: 20px; border-left: 2px solid var(--primary-gold); }
+        .contact-info h3 { font-family: 'Cinzel', serif; color: var(--primary-gold); letter-spacing: 2px; margin-bottom: 25px; }
+        .contact-form { flex: 1.5; min-width: 300px; background: rgba(255, 255, 255, 0.95); padding: 40px; border: 1px solid rgba(212, 175, 55, 0.3); box-shadow: 0 15px 35px rgba(26, 60, 64, 0.08); position: relative; }
+        .contact-form::after { content: '◈'; position: absolute; bottom: 15px; right: 15px; color: var(--primary-gold); opacity: 0.4; }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--deep-teal); font-size: 0.9rem; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #E0E0E0; border-radius: 0; font-family: inherit; background: #fff; transition: 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
+        .submit-btn { width: 100%; border: none; font-weight: 700; cursor: pointer; background: var(--primary-gold); color: white; padding: 15px; transition: 0.3s; }
+        .submit-btn:hover { background: var(--deep-teal); }
+        #success-msg { display: none; text-align: center; padding: 40px; color: var(--deep-teal); }
     </style>
 </head>
 <body>
@@ -121,31 +56,35 @@
         <div class="contact-wrapper">
             <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
                 <h3>Contact Info</h3>
-                <p><strong>能量場域：</strong> 台北市松山區某某路 123 號（預約制）</p>
+                <p><strong>能量場域：</strong> 台北市松山區（預約制）</p>
                 <p><strong>電子信箱：</strong> niuniu@sacredaroma.com</p>
                 <p><strong>Line 聯繫：</strong> @aroma_healer</p>
                 <p><strong>靜心時間：</strong> 週四、週日 10:00 - 20:00</p>
                 
                 <div style="margin-top: 40px; padding: 20px; background: rgba(212, 175, 55, 0.05); border: 1px dashed var(--primary-gold);">
                     <p style="font-size: 0.9rem; color: #555; margin: 0;">
-                        <em>* 溫馨提醒：為了保持療程中的能量流動與品質，諮詢中無法及時接聽電話，請優先利用 Line 或下方表單留言，我會儘速回覆您。</em>
+                        <em>* 溫馨提醒：請優先利用下方表單留言，我會儘速回覆您。</em>
                     </p>
                 </div>
             </div>
 
             <div class="contact-form" data-aos="fade-left" data-aos-delay="400">
-                <form id="contact-form">
+                <form id="contact-supabase-form">
                     <div class="form-group">
                         <label for="name">您的稱呼 (Name)</label>
-                        <input type="text" id="name" name="from_name" placeholder="請輸入您的姓名" required>
+                        <input type="text" id="name" required placeholder="請輸入您的姓名">
                     </div>
                     <div class="form-group">
-                        <label for="email">聯絡方式 (Email / Line ID)</label>
-                        <input type="text" id="email" name="contact_info" placeholder="方便回覆您的聯絡方式" required>
+                        <label for="phone">聯絡電話 (Phone)</label>
+                        <input type="tel" id="phone" required placeholder="請輸入您的手機號碼">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">電子信箱 (Email / Line ID)</label>
+                        <input type="text" id="email" placeholder="方便回覆您的聯絡方式">
                     </div>
                     <div class="form-group">
                         <label for="service">感興趣的療程項目</label>
-                        <select id="service" name="service_type">
+                        <select id="service">
                             <option value="脈輪平衡按摩">脈輪平衡按摩療程 (60 mins)</option>
                             <option value="個性化靈境諮詢">個性化靈境諮詢 (30 mins)</option>
                             <option value="其他需求">其他需求詢問</option>
@@ -153,7 +92,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message">您的訊息 (Message)</label>
-                        <textarea id="message" name="message" rows="5" placeholder="請告訴我您的需求或預計想預約的時間..."></textarea>
+                        <textarea id="message" rows="5" placeholder="請告訴我您的需求或預計想預約的時間..."></textarea>
                     </div>
                     <button type="submit" id="submit-button" class="btn submit-btn">傳送預約訊息</button>
                 </form>
@@ -172,46 +111,58 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
     <script>
-        // 初始化 AOS
         AOS.init({ duration: 1000, once: true });
 
-        // 初始化 EmailJS (請換成你的 Public Key)
-        (function() {
-            emailjs.init("YOUR_PUBLIC_KEY"); 
-        })();
+        // 請務必填入你的 Supabase 資料
+        const SUPABASE_URL = 'https://wkfbnqxklmngflgmgdwk.supabase.co';
+        const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY'; 
 
-        // 表單處理邏輯
-        const contactForm = document.getElementById('contact-form');
+        const contactForm = document.getElementById('contact-supabase-form');
         const successMsg = document.getElementById('success-msg');
         const submitBtn = document.getElementById('submit-button');
 
         if(contactForm) {
-            contactForm.addEventListener('submit', function(event) {
+            contactForm.addEventListener('submit', async function(event) {
                 event.preventDefault();
+                
                 submitBtn.innerText = "能量傳送中...";
                 submitBtn.disabled = true;
 
-                // 傳送郵件 (請換成你的 Service ID 和 Template ID)
-                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-                    .then(function() {
+                const formData = {
+                    user_name: document.getElementById('name').value,
+                    user_phone: document.getElementById('phone').value,
+                    user_email: document.getElementById('email').value,
+                    subject: document.getElementById('service').value,
+                    message: document.getElementById('message').value
+                };
+
+                try {
+                    const response = await fetch(`${SUPABASE_URL}/rest/v1/contacts`, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': SUPABASE_KEY,
+                            'Authorization': `Bearer ${SUPABASE_KEY}`,
+                            'Content-Type': 'application/json',
+                            'Prefer': 'return=minimal'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (response.ok) {
                         contactForm.style.display = 'none';
                         successMsg.style.display = 'block';
-                    }, function(error) {
-                        alert('傳送失敗，請透過 Line 與我們聯繫。');
-                        submitBtn.innerText = "重新傳送";
-                        submitBtn.disabled = false;
-                    });
+                    } else {
+                        throw new Error('Supabase Error');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('傳送失敗，請稍後再試或透過 Line 聯繫。');
+                    submitBtn.innerText = "重新傳送";
+                    submitBtn.disabled = false;
+                }
             });
         }
     </script>
-    <script src="js/script.js"></script>
 </body>
 </html>
-
-
-
-
-
