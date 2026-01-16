@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>聯絡靈境 - 開啟您的療癒儀式</title>
     <meta name="description" content="立即預約您的靈境療癒時光。位於台北市松山區，提供預約制專屬諮詢。點擊填寫表單或加入 Line 聯繫芳療師妞妞。">
-    <meta name="keywords" content="芳療預約, 聯絡妞妞, 台北按摩預約, 松山區芳療">
     <link rel="icon" href="images/faviconlog.png" type="image/png">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZSGTP2E2D"></script>
@@ -15,6 +14,9 @@
       gtag('js', new Date());
       gtag('config', 'G-NZSGTP2E2D');
     </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -29,21 +31,26 @@
         .form-group { margin-bottom: 25px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--deep-teal); font-size: 0.9rem; }
         .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #E0E0E0; border-radius: 0; font-family: inherit; background: #fff; transition: 0.3s; }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
-        /* 讓 button 標籤繼承所有 .btn 的設定，並移除瀏覽器預設的邊框 */
+        
+        /* 修正按鈕樣式，借用 .btn 並補強 */
         button.btn {
-            display: inline-block;    /* 確保寬度行為一致 */
-            font-family: inherit;     /* 繼承字體 */
-            border: none;             /* 移除 button 預設的黑邊框 */
-            text-decoration: none;    /* 移除底線 */
-            cursor: pointer;          /* 鼠標變成手指 */
+            display: inline-block;
+            font-family: inherit;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: var(--primary-gold); /* 預設金色 */
+            color: #fff !important;
         }
         
-        /* 針對聯絡我頁面的特殊需求：讓它變寬 */
         .submit-btn {
-            width: 100%;
+            width: 100% !important;
             margin-top: 10px;
+            padding: 15px;
+            font-weight: 700;
         }
+
         #success-msg { display: none; text-align: center; padding: 40px; color: var(--deep-teal); }
     </style>
 </head>
@@ -91,6 +98,10 @@
                         <input type="tel" id="phone" required placeholder="請輸入您的手機號碼">
                     </div>
                     <div class="form-group">
+                        <label for="booking_time">預約日期與時間 (僅限週四、週日)</label>
+                        <input type="text" id="booking_time" required placeholder="點擊選擇時段...">
+                    </div>
+                    <div class="form-group">
                         <label for="email">電子信箱 (Email / Line ID)</label>
                         <input type="text" id="email" placeholder="方便回覆您的聯絡方式">
                     </div>
@@ -104,7 +115,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message">您的訊息 (Message)</label>
-                        <textarea id="message" rows="5" placeholder="請告訴我您的需求或預計想預約的時間..."></textarea>
+                        <textarea id="message" rows="5" placeholder="請告訴我您的具體需求..."></textarea>
                     </div>
                     <button type="submit" id="submit-button" class="btn submit-btn">傳送預約訊息</button>
                 </form>
@@ -126,8 +137,24 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // 請務必填入你的 Supabase 資料
+        // 初始化日期時間選擇器
+        flatpickr("#booking_time", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            minDate: "today",
+            minTime: "10:00",
+            maxTime: "20:00",
+            minuteIncrement: 30,
+            "disable": [
+                function(date) {
+                    // 只有週日(0)和週四(4)可以點擊
+                    return (date.getDay() !== 0 && date.getDay() !== 4);
+                }
+            ]
+        });
+
         const SUPABASE_URL = 'https://wkfbnqxklmngflgmgdwk.supabase.co';
+        // 請確保這是你的 anon key (很長的那串)
         const SUPABASE_KEY = 'sb_publishable_7ELYycfUE6mSVQufsJwQlQ_58hFGc2t'; 
 
         const contactForm = document.getElementById('contact-supabase-form');
@@ -144,6 +171,7 @@
                 const formData = {
                     user_name: document.getElementById('name').value,
                     user_phone: document.getElementById('phone').value,
+                    booking_time: document.getElementById('booking_time').value, // 抓取新欄位
                     user_email: document.getElementById('email').value,
                     subject: document.getElementById('service').value,
                     message: document.getElementById('message').value
@@ -169,7 +197,7 @@
                     }
                 } catch (error) {
                     console.error('Error:', error);
-                    alert('傳送失敗，請稍後再試或透過 Line 聯繫。');
+                    alert('傳送失敗，請稍後再試。');
                     submitBtn.innerText = "重新傳送";
                     submitBtn.disabled = false;
                 }
@@ -178,11 +206,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
