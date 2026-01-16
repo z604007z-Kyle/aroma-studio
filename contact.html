@@ -32,23 +32,18 @@
         .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--deep-teal); font-size: 0.9rem; }
         .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #E0E0E0; border-radius: 0; font-family: inherit; background: #fff; transition: 0.3s; }
         
-        /* 修正按鈕樣式，借用 .btn 並補強 */
         button.btn {
-            display: inline-block;
-            font-family: inherit;
-            border: none;
-            text-decoration: none;
-            cursor: pointer;
-            transition: 0.3s;
-            background-color: var(--primary-gold); /* 預設金色 */
-            color: #fff !important;
+            display: inline-block;    /* 確保寬度行為一致 */
+            font-family: inherit;     /* 繼承字體 */
+            border: none;             /* 移除 button 預設的黑邊框 */
+            text-decoration: none;    /* 移除底線 */
+            cursor: pointer;          /* 鼠標變成手指 */
         }
         
+        /* 針對聯絡我頁面的特殊需求：讓它變寬 */
         .submit-btn {
-            width: 100% !important;
+            width: 100%;
             margin-top: 10px;
-            padding: 15px;
-            font-weight: 700;
         }
 
         #success-msg { display: none; text-align: center; padding: 40px; color: var(--deep-teal); }
@@ -206,3 +201,4 @@
     </script>
 </body>
 </html>
+
